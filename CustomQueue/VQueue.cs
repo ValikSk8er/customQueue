@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 
 namespace CustomQueue
 {
@@ -8,7 +9,13 @@ namespace CustomQueue
     /// </summary>
     public class VQueue<T>
     {
-        private static List<T> QueueCollection = new List<T>();
+        private static ObservableCollection<T> QueueCollection;
+
+        public VQueue()
+        {
+            QueueCollection = new ObservableCollection<T>();
+            QueueCollection.CollectionChanged += QueueCollection_Changed;
+        }
 
         /// <summary>
         /// ExtractFirst is a method to extracts and return element from queue
@@ -41,11 +48,27 @@ namespace CustomQueue
         /// <summary>
         /// ShowQueue is a method to display all elements in queue
         /// </summary>
-        public void ShowQueue()
+        public void ShowQueue(Action<T> displyAction)
         {
             foreach (var element in QueueCollection)
             {
-                Console.WriteLine(element.ToString());
+                displyAction(element);
+            }
+        }
+
+        private static void QueueCollection_Changed(object sender, NotifyCollectionChangedEventArgs eventArgs)
+        {
+            switch (eventArgs.Action)
+            {
+                case NotifyCollectionChangedAction.Add:
+                    var addedElement = eventArgs.NewItems[0];
+                    Console.WriteLine($"Element '{addedElement}' was added to the end of queue");
+                    break;
+
+                case NotifyCollectionChangedAction.Remove:
+                    var extractedElement = eventArgs.OldItems[0];
+                    Console.WriteLine($"Element '{extractedElement}' was extracted from queue");
+                    break;
             }
         }
     }

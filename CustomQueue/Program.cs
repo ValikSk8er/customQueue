@@ -14,18 +14,19 @@ namespace CustomQueue
             myQueue.Add(4);
             myQueue.Add(5);
             myQueue.Add(6);
-            myQueue.ShowQueue();
+            myQueue.ShowQueue(x => Console.WriteLine(x));
 
             myQueue.ExtractFirst();
-            Console.WriteLine("first element was extracted");
-            myQueue.ShowQueue();
+            myQueue.ShowQueue(x => Console.WriteLine(x));
 
             myQueue.ExtractFirst();
-            Console.WriteLine("first element was extracted");
-            myQueue.ShowQueue();
+            myQueue.ShowQueue(x => Console.WriteLine(x));
+
+            myQueue.ExtractFirst();
+            myQueue.ShowQueue(x => Console.WriteLine(x));
 
             Console.WriteLine($"Get first - {myQueue.GetFirst()}");
-            myQueue.ShowQueue();
+            myQueue.ShowQueue(x => Console.WriteLine(x));
 
             Console.ReadLine();
         }
