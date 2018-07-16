@@ -62,12 +62,12 @@ namespace CustomQueue
             {
                 case NotifyCollectionChangedAction.Add:
                     var addedElement = eventArgs.NewItems[0];
-                    Console.WriteLine($"Element '{addedElement}' was added to the end of queue");
+                    Console.WriteLine($"Element '{addedElement.ToString()}' was added to the end of queue");
                     break;
 
                 case NotifyCollectionChangedAction.Remove:
                     var extractedElement = eventArgs.OldItems[0];
-                    Console.WriteLine($"Element '{extractedElement}' was extracted from queue");
+                    Console.WriteLine($"Element '{extractedElement.ToString()}' was extracted from queue");
                     break;
             }
         }
