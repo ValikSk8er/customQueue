@@ -32,7 +32,7 @@ namespace CustomQueue
             {
                 _head++;
             }
-            else if(_head++ == _size)
+            else if(_head + 1 == _size)
             {
                 _head = 0;
             }
@@ -87,7 +87,7 @@ namespace CustomQueue
         public object GetFirst()
         {
             Console.WriteLine($"First element '{_queue[_head]}' was get");
-            Console.WriteLine(new string('-', 10));
+            PrintSepareteLine();
             return _queue[_head];
         }
 
