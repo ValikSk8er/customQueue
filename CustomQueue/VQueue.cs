@@ -28,14 +28,7 @@ namespace CustomQueue
             var extactedElement = _queue[_head];
             _queue[_head] = null;
 
-            if (_head + 1 < _size)
-            {
-                _head++;
-            }
-            else
-            {
-                _head = 0;
-            }
+            _head = _head + 1 < _size ? _head + 1 : 0;
 
             Console.WriteLine($"First element '{extactedElement}' was extracted");
             PrintSepareteLine();
