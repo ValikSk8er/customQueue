@@ -32,7 +32,7 @@ namespace CustomQueue
             {
                 _head++;
             }
-            else if(_head + 1 == _size)
+            else
             {
                 _head = 0;
             }
@@ -53,21 +53,20 @@ namespace CustomQueue
             }
             else
             {
-                if (_tail + 1 < _size && _queue[_tail + 1] != null)
+                int freeIndex = _tail + 1;
+                if (freeIndex < _size && _queue[freeIndex] != null)
                 {
                     CreateBiggestQueue();
                 }
 
-                if (_tail + 1 < _size)
+                if (freeIndex < _size)
                 {
-                    _tail++;
-                    _queue[_tail] = element;
+                    _queue[++_tail] = element;
                 }
-                else if (_tail + 1 == _size && _head == 0)
+                else if (freeIndex == _size && _head == 0)
                 {
                     CreateBiggestQueue();
-                    _tail++;
-                    _queue[_tail] = element;
+                    _queue[++_tail] = element;
                 }
                 else
                 {
