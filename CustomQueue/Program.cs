@@ -34,6 +34,8 @@ namespace CustomQueue
             myQueue.ExtractFirst();
             myQueue.ShowQueue();
             myQueue.Add(14);
+            myQueue.Add(15);
+            myQueue.ShowQueue();
             myQueue.ExtractFirst();
             myQueue.ExtractFirst();
             myQueue.ExtractFirst();

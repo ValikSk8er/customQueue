@@ -89,14 +89,28 @@ namespace CustomQueue
         public void ShowQueue()
         {
             Console.WriteLine("ShowQueue:");
+            int j=-1;
 
-            for (int i = 0; i < _size; i++)
+            for (int i = _head; i <= _queue.Length; i++)
             {
+                if (i == _queue.Length)
+                {
+                    i = 0;
+                }
+
+                j++;
+
+                if (j == _queue.Length)
+                {
+                    break;
+                }
+
                 if (_queue[i] != null)
                 {
                     Console.WriteLine($"Element: '{_queue[i]}' wiht index '{i}'");
                 }
             }
+
             PrintSepareteLine();
         }
 
