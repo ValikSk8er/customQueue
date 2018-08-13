@@ -75,10 +75,10 @@ namespace CustomQueue
         /// <summary>
         /// GetFirst is a method to return first element from queue
         /// </summary>
-        /// Returns first queue element
+        /// Returns first element in queue
         public object GetFirst()
         {
-            Console.WriteLine($"First element '{_queue[_head]}' was get");
+            Console.WriteLine($"First element in queue is '{_queue[_head]}'");
             PrintSepareteLine();
             return _queue[_head];
         }
