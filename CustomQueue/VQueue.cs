@@ -3,7 +3,7 @@
 namespace CustomQueue
 {
     /// <summary>
-    /// VQueue - FIFO
+    /// VQueue - Valik's queue (FIFO)
     /// </summary>
     public class VQueue
     {
@@ -89,21 +89,15 @@ namespace CustomQueue
         public void ShowQueue()
         {
             Console.WriteLine("ShowQueue:");
-            int j=-1;
+            int iterationCounter = 0;
 
-            for (int i = _head; i <= _queue.Length; i++)
+            for (int i = _head; iterationCounter < _queue.Length; i++)
             {
                 if (i == _queue.Length)
                 {
                     i = 0;
                 }
-
-                j++;
-
-                if (j == _queue.Length)
-                {
-                    break;
-                }
+                iterationCounter++;
 
                 if (_queue[i] != null)
                 {
@@ -145,7 +139,8 @@ namespace CustomQueue
 
         private void PrintSepareteLine()
         {
-            Console.WriteLine(new string('-', 35));
+            int charsNumber = 35;
+            Console.WriteLine(new string('-', charsNumber));
         }
     }
 }
